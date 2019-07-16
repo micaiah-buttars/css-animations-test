@@ -1,17 +1,24 @@
 @function revolution($orbital-year){
-  @return $orbital-year * 60 / 365.2563 + s
+  @return $orbital-year * 30 / 365.2563 + s
 }
+// final should be 30s
 
 $sun: 45px;
-$mercury-orbit : 70px *3; $mercury: 4px *3; 
-$venus-orbit : 90px *3; $venus: 6px *3; 
-$earth-orbit : 160px *3; $earth: 6px *3; 
-$mars-orbit : 190px *3; $mars: 6px *3;
-$jupiter-orbit : 340px *3; $jupiter: 10px *3; 
-$saturn-orbit : 430px *3; $saturn: 8px *3;
-$uranus-orbit : 460px *3; $uranus: 8px *3;
-$neptune-orbit : 580px *3; $neptune: 8px *3;
+$mercury-orbit : 210px; $mercury: 12px; 
+$venus-orbit : 254px; $venus: 18px; 
+$earth-orbit : 470px; $earth: 18px; 
+$mars-orbit : 570px; $mars: 18px;
+$jupiter-orbit : 1020px; $jupiter: 30px; 
+$saturn-orbit : 1290px; $saturn: 24px;
+$uranus-orbit : 1380px; $uranus: 24px;
+$neptune-orbit : 1740px; $neptune: 24px;
 
+$mercury-line: 216px;
+
+$jupiter-inner: 1012px;
+$jupiter-outer: 1028px;
+
+$neptune-line: 1750px;
 
 
 
@@ -83,9 +90,15 @@ $neptune-orbit : 580px *3; $neptune: 8px *3;
     height:$mercury;
     width:$mercury;
     background: #555;
-    margin-top: -$mercury / 2;
-    margin-left: -$mercury / 2;
+    margin-top: (-$mercury / 2) - 2;
+    margin-left: (-$mercury / 2) - 3;
   }
+}
+.mercury-line{
+    width: $mercury-line;
+    height: $mercury-line;
+    margin-top: -$mercury-line / 2;
+    margin-left: -$mercury-line / 2;
 }
 
 .venus{
@@ -123,6 +136,8 @@ $neptune-orbit : 580px *3; $neptune: 8px *3;
   margin-top: -$mars-orbit / 2;
   margin-left: -$mars-orbit / 2;
   animation: orb revolution(687) linear infinite;
+  animation-delay: -20s;
+
   &:before{
     height:$mars;
     width:$mars;
@@ -138,6 +153,7 @@ $neptune-orbit : 580px *3; $neptune: 8px *3;
   margin-top: -$jupiter-orbit / 2;
   margin-left: -$jupiter-orbit / 2;
   animation: orb revolution(4331) linear infinite;
+  animation-delay: -80s;
   &:before{
     height:$jupiter;
     width:$jupiter;
@@ -146,12 +162,31 @@ $neptune-orbit : 580px *3; $neptune: 8px *3;
     margin-left: -$jupiter / 2;
   }
 }
+.jupiter-inner{
+    width: $jupiter-inner;
+    height: $jupiter-inner;
+    margin-top: -$jupiter-inner / 2;
+    margin-left: -$jupiter-inner / 2;
+}
+.jupiter-outer{
+    width: $jupiter-outer;
+    height: $jupiter-outer;
+    margin-top: -$jupiter-outer / 2;
+    margin-left: -$jupiter-outer / 2;
+}
+
+
+
+
+
 .saturn{
   height: $saturn-orbit;
   width: $saturn-orbit;
   margin-top: -$saturn-orbit / 2;
   margin-left: -$saturn-orbit / 2;
   animation: orb revolution(7470) linear infinite;
+  animation-delay: -130s;
+
   &:before{
     height:$saturn;
     width:$saturn;
@@ -180,6 +215,8 @@ $neptune-orbit : 580px *3; $neptune: 8px *3;
   margin-top: -$uranus-orbit / 2;
   margin-left: -$uranus-orbit / 2;
   animation: orb revolution(3058) linear infinite reverse;
+  animation-delay: -100s;
+
   &:before{
     height:$uranus;
     width:$uranus;
@@ -195,15 +232,22 @@ $neptune-orbit : 580px *3; $neptune: 8px *3;
   margin-top: -$neptune-orbit / 2;
   margin-left: -$neptune-orbit / 2;
   animation: orb revolution(5980) linear infinite;
+  animation-delay: -100s;
+
   &:before{
     height:$neptune;
     width:$neptune;
     background:#555;
-    margin-top: -$neptune / 2;
-    margin-left: -$neptune / 2;
+    margin-top: (-$neptune / 2) - 3;
+    margin-left: (-$neptune / 2);
   }
 }
-
+.neptune-line{
+    width: $neptune-line;
+    height: $neptune-line;
+    margin-top: -$neptune-line / 2;
+    margin-left: -$neptune-line / 2;
+}
 .hide{
   display:none;
 }
